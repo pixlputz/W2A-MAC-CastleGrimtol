@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace DataLayer.Interfaces
 {
-    internal interface IGameItem
+    internal interface IGameInfo
     {
       string Title { get; set; }
       string Version { get; set; }

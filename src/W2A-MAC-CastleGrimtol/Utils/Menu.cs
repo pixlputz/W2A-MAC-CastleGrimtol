@@ -22,10 +22,10 @@ namespace W2A_MAC_CastleGrimtol.Utils
          int count = 1;
          foreach (var option in Options)
          {
-            Write($"{count++} {option.Description}");
+            Globals.Write($"{count++}) {option.Description}", true);
          }
-         Console.WriteLine("");
-         Console.Write("Selection: > ");
+         Globals.BlankLine();
+         Globals.Write("Selection: > ", false);
       }
 
       public Action SelectOption()
@@ -37,7 +37,7 @@ namespace W2A_MAC_CastleGrimtol.Utils
          bool valid = int.TryParse(input, out index);
          if (!valid || index <= 0 || index > Options.Count)
          {
-            Console.WriteLine("Invalid Selection.");
+            Globals.Write("Invalid Selection; please try again.", true);
             return null;
          }
          return Options[index - 1].Action;

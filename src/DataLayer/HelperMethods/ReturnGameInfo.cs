@@ -6,7 +6,7 @@ using DataLayer.Interfaces;
 
 namespace DataLayer.HelperMethods
 {
-   public class ReturnGameInfo : IGameItem
+   public class ReturnGameInfo : IGameInfo
    {
       public string Title { get; set; }
       public string Version { get; set; }
@@ -22,8 +22,6 @@ namespace DataLayer.HelperMethods
          DateLastUpdated = dateLastUpdated;
          Description = description;
       }
-
    }
-
 
 }

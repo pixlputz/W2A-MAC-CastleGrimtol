@@ -29,6 +29,7 @@ namespace DataLayer.Providers
             );
       }
 
+      public ReturnGameState GetGameState()
 
 
 

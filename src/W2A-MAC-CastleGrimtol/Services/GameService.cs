@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using DataLayer.Providers;
 using W2A_MAC_CastleGrimtol.Utils;
 
+
 namespace W2A_MAC_CastleGrimtol.Services
 {
    public class GameService
@@ -15,7 +16,6 @@ namespace W2A_MAC_CastleGrimtol.Services
       private bool InGame { get; set; }
       private Menu MainMenu { get; set; }
 
-      private string paddingLeft = "     ";
 
 
 
@@ -30,48 +30,26 @@ namespace W2A_MAC_CastleGrimtol.Services
       {
          var gameInfo = _gp.GetGameInfo();
 
-         Clear();
-         BlankLine();
-         Write("*************************************************", true);
-         Write("*         Welcome to: " + gameInfo.Title + "              *", true);
-         Write("*************************************************", true);
-         Write("         Version: " + gameInfo.Version + "       ", true);
-         Write("         Developer: " + gameInfo.Developer + "       ", true);
-         Write("         Last Update: " + gameInfo.DateLastUpdated + "       ", true);
-         Write("-------------------------------------------------", true);
-         Write("Today's Date/Time: " + DateTime.Now.ToString(), true);
-         Write("", true);
+         Globals.Clear();
+         Globals.BlankLine();
+         Globals.Write("*************************************************", true);
+         Globals.Write("*         Welcome to: " + gameInfo.Title + "              *", true);
+         Globals.Write("*************************************************", true);
+         Globals.Write("         Version: " + gameInfo.Version + "       ", true);
+         Globals.Write("         Developer: " + gameInfo.Developer + "       ", true);
+         Globals.Write("         Last Update: " + gameInfo.DateLastUpdated + "       ", true);
+         Globals.Write("-------------------------------------------------", true);
+         Globals.Write("Today's Date/Time: " + DateTime.Now.ToString(), true);
+         Globals.Write("", true);
          foreach (string line in gameInfo.Description)
          {
-            Write(line, true);
+            Globals.Write(line, true);
          }
-         BlankLine();
-         Write("Are you ready to play?!", true);
-         BlankLine();
+         Globals.BlankLine();
+         Globals.Write("Are you ready to play?!", true);
+         Globals.BlankLine();
 
          MainMenuSelection();
-      }
-
-      public void Write(string output, bool newline)
-      {
-         if (newline)
-         {
-            Console.WriteLine(paddingLeft + output);
-         }
-         else
-         {
-            Console.Write(paddingLeft + output);
-         }
-      }
-
-      public void BlankLine()
-      {
-         Write("", true);
-      }
-
-      public void Clear()
-      {
-         Console.Clear();
       }
 
 
@@ -106,13 +84,14 @@ namespace W2A_MAC_CastleGrimtol.Services
 
       private void moSelectPlay()
       {
-         Console.Clear();
+         Globals.Clear();
          InGame = true;
          while (InGame)
          {
-            Console.WriteLine("Playing Game now...");
-            Console.WriteLine("");
-            Console.Write("Press any key to return to Main Menu... > ");
+            Globals.BlankLine();
+            Globals.Write("Playing Game now...", true);
+            Globals.BlankLine();
+            Globals.Write("Press any key to return to Main Menu... > ", false);
             Console.Read();
             InGame = false;
          }
@@ -120,10 +99,11 @@ namespace W2A_MAC_CastleGrimtol.Services
 
       private void moSelectExit()
       {
-         Console.Clear();
-         Console.WriteLine("Exiting Game ...");
-         Console.WriteLine("");
-         Console.Write("Press any key to continue... > ");
+         Globals.Clear();
+         Globals.BlankLine();
+         Globals.Write("Exiting Game ...", true);
+         Globals.BlankLine();
+         Globals.Write("Press any key to continue... > ", false);
          Console.Read();
          InGame = false;
          Running = false;
