@@ -11,7 +11,7 @@ namespace DataLayer.Interfaces
       string Version { get; set; }
       string Developer { get; set; }
       string DateLastUpdated { get; set; }
-      string Description { get; set; }
+      List<string> Description { get; set; }
    }
 
 

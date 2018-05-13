@@ -12,13 +12,17 @@ namespace DataLayer
 
       public Database()
       {
+         List<string> description = new List<string>();
+         description.Add("Make it through the first day on your new job!");
+         description.Add("Stay Hired Before You're Fired!");
+
          //Build game object:
          game = new Game(
             "New Job, LLC",
             "1.0.0",
             "Michael A. Chamberlain",
             "2018-05-11",
-            "Make it through the first day on your new job! - Stay Hired Before You're Fired! "
+            description
             );
 
 

@@ -12,9 +12,9 @@ namespace DataLayer.HelperMethods
       public string Version { get; set; }
       public string Developer { get; set; }
       public string DateLastUpdated { get; set; }
-      public string Description { get; set; }
+      public List<string> Description { get; set; }
 
-      public ReturnGameInfo(string title, string version, string developer, string dateLastUpdated, string description)
+      public ReturnGameInfo(string title, string version, string developer, string dateLastUpdated, List<string> description)
       {
          Title = title;
          Version = version;

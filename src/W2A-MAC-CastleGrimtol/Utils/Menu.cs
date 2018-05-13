@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using W2A_MAC_CastleGrimtol.Services;
 
 namespace W2A_MAC_CastleGrimtol.Utils
 {
@@ -21,7 +22,7 @@ namespace W2A_MAC_CastleGrimtol.Utils
          int count = 1;
          foreach (var option in Options)
          {
-            Console.WriteLine($"{count++} {option.Description}");
+            Write($"{count++} {option.Description}");
          }
          Console.WriteLine("");
          Console.Write("Selection: > ");

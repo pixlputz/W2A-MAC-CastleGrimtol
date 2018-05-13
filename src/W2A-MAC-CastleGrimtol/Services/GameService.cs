@@ -15,6 +15,8 @@ namespace W2A_MAC_CastleGrimtol.Services
       private bool InGame { get; set; }
       private Menu MainMenu { get; set; }
 
+      private string paddingLeft = "     ";
+
 
 
       public GameService()
@@ -28,26 +30,59 @@ namespace W2A_MAC_CastleGrimtol.Services
       {
          var gameInfo = _gp.GetGameInfo();
 
-         Console.Clear();
-         Console.WriteLine("");
-         Console.WriteLine("Game Title: " + gameInfo.Title);
-         Console.WriteLine("Version: v" + gameInfo.Version);
-         Console.WriteLine("Developer: " + gameInfo.Developer);
-         Console.WriteLine("Last Updated: " + gameInfo.DateLastUpdated);
-         Console.WriteLine("");
-         Console.WriteLine(gameInfo.Description);
+         Clear();
+         BlankLine();
+         Write("*************************************************", true);
+         Write("*         Welcome to: " + gameInfo.Title + "              *", true);
+         Write("*************************************************", true);
+         Write("         Version: " + gameInfo.Version + "       ", true);
+         Write("         Developer: " + gameInfo.Developer + "       ", true);
+         Write("         Last Update: " + gameInfo.DateLastUpdated + "       ", true);
+         Write("-------------------------------------------------", true);
+         Write("Today's Date/Time: " + DateTime.Now.ToString(), true);
+         Write("", true);
+         foreach (string line in gameInfo.Description)
+         {
+            Write(line, true);
+         }
+         BlankLine();
+         Write("Are you ready to play?!", true);
+         BlankLine();
 
          MainMenuSelection();
       }
 
-      private void DisplayMainMenu()
+      public void Write(string output, bool newline)
       {
-         var counter = 1;
-         foreach (MenuOption option in MainMenu.Options)
+         if (newline)
          {
-            Console.WriteLine($"{counter++} {option.Description}");
+            Console.WriteLine(paddingLeft + output);
+         }
+         else
+         {
+            Console.Write(paddingLeft + output);
          }
       }
+
+      public void BlankLine()
+      {
+         Write("", true);
+      }
+
+      public void Clear()
+      {
+         Console.Clear();
+      }
+
+
+      //private void DisplayMainMenu()
+      //{
+      //   var counter = 1;
+      //   foreach (MenuOption option in MainMenu.Options)
+      //   {
+      //      Write($"{counter++}) {option.Description}", true);
+      //   }
+      //}
 
       private void MainMenuSelection()
       {
@@ -64,8 +99,8 @@ namespace W2A_MAC_CastleGrimtol.Services
             "Main Menu",
             new List<MenuOption>
             {
-               new MenuOption(moSelectPlay, "Play Game!"),
-               new MenuOption(moSelectExit, "Exit")            
+               new MenuOption(moSelectPlay, "Yes, I'm in! - Let's Play!"),
+               new MenuOption(moSelectExit, "No, sorry; I think I'd rather not: Exit")            
             });
       }
 

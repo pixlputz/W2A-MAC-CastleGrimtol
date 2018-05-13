@@ -11,10 +11,10 @@ namespace DataLayer.Models
       internal string Version { get; private set; }
       internal string Developer { get; private set; }
       internal string DateLastUpdated { get; private set; }
-      internal string Description { get; private set; }
+      internal List<string> Description { get; private set; }
       
   
-      public Game(string title, string version, string developer, string dateLastUpdated, string description)
+      public Game(string title, string version, string developer, string dateLastUpdated, List<string> description)
       {
          Title = title;
          Version = version;
