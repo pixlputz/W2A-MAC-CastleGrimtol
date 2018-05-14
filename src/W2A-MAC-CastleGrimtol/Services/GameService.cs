@@ -60,7 +60,12 @@ namespace W2A_MAC_CastleGrimtol.Services
          Globals.Clear();
          Globals.BlankLine();
          Globals.Write("*************************************************", true);
-         Globals.Write("*         Welcome to: " + gameInfo.Title + "              *", true);
+         Console.Write("     ");
+         Console.ForegroundColor = ConsoleColor.Blue;
+         Console.BackgroundColor = ConsoleColor.Yellow;
+         Console.WriteLine("*         Welcome to: " + gameInfo.Title + "              *");
+         Console.ForegroundColor = ConsoleColor.White;
+         Console.BackgroundColor = ConsoleColor.Black;
          Globals.Write("*************************************************", true);
          Globals.Write("         Version: " + gameInfo.Version + "       ", true);
          Globals.Write("         Developer: " + gameInfo.Developer + "       ", true);
@@ -75,6 +80,8 @@ namespace W2A_MAC_CastleGrimtol.Services
          Globals.BlankLine();
          Globals.Write("Are you ready to play?!", true);
          Globals.BlankLine();
+         Console.Beep(1000, 1000 / 4);
+         Console.Beep(1500, 1000 / 5);
 
          MainMenuSelection();
       }
