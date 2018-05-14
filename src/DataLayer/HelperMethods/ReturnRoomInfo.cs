@@ -6,7 +6,7 @@ using DataLayer.Interfaces;
 
 namespace DataLayer.HelperMethods
 {
-   public class ReturnRoom1Info : IRoomInfo
+   public class ReturnRoomInfo : IRoomInfo
    {
       public string Id { get; set; }
       public string Name { get; set; }
@@ -15,7 +15,7 @@ namespace DataLayer.HelperMethods
       public string Item { get; set; }
       public List<string> Description { get; set; }
 
-      public ReturnRoom1Info(string id, string name, string personTitle, string personMood, string item, List<string> description)
+      public ReturnRoomInfo(string id, string name, string personTitle, string personMood, string item, List<string> description)
       {
          Id = id;
          Name = name;
@@ -24,6 +24,12 @@ namespace DataLayer.HelperMethods
          Item = item;
          Description = description;
       }
+
+      public void SetPersonMood(string mood)
+      {
+         PersonMood = mood;
+      }
+
    }
 
 }
