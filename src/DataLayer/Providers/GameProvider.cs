@@ -29,9 +29,39 @@ namespace DataLayer.Providers
             );
       }
 
-      public ReturnGameState GetGameState()
+      public ReturnGamePlayedStatus GetGamePlayedStatus()
+      {
+         return new ReturnGamePlayedStatus(_db.game.Played);
+      }
 
+      public ReturnGamePlayedStatus SetGamePlayedStatus(bool played)
+      {
+         return new ReturnGamePlayedStatus(_db.game.Played = true);
+      }
 
+      public ReturnRoom1Info GetRoom1Info()
+      {
+         return new ReturnRoom1Info(
+            _db.roomAdminOffice.Id.ToString(),
+            _db.roomAdminOffice.Name,
+            _db.roomAdminOffice.Person.Title,
+            _db.roomAdminOffice.Person.Mood.ToString(),
+            _db.roomAdminOffice.Item.Name,
+            _db.roomAdminOffice.Description
+            );
+      }
+
+      public void AddRoom1ItemToInventory()
+      {
+         _db.player.Inventory.Add(_db.itemInProcessingForm);        
+      }
+
+      public ReturnPlayerInfo GetPlayerInfo()
+      {
+         return new ReturnPlayerInfo(
+            _db.player.Inventory
+            );
+      }
 
 
    }

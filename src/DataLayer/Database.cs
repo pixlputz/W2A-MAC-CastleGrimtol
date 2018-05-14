@@ -9,6 +9,15 @@ namespace DataLayer
    internal class Database
    {
       internal Game game;
+      internal Room roomAdminOffice;
+      internal Room roomHROffice;
+      internal Room roomDepOffice;
+      internal Room roomWorkArea;
+      internal Item itemInProcessingForm;
+      internal Item itemPolicyAgreementPackage;
+      internal Item itemBuildingFob;
+      internal Item itemActiveDirectoryAccount;
+      internal Player player;
 
       public Database()
       {
@@ -27,13 +36,13 @@ namespace DataLayer
             );
 
          //Build Game items:
-         Item itemInProcessingForm = new Item(1, "In-Processing Form", false, false);
-         Item itemPolicyAgreementPackage = new Item(2, "Policy Agreement Package", false, false);
-         Item itemBuildingFob = new Item(3, "Building Fob", false, false);
-         Item itemActiveDirectoryAccount = new Item(4, "Active Directory Account", false, false);
+         itemInProcessingForm = new Item(1, "In-Processing Form", false, false);
+         itemPolicyAgreementPackage = new Item(2, "Policy Agreement Package", false, false);
+         itemBuildingFob = new Item(3, "Building Fob", false, false);
+         itemActiveDirectoryAccount = new Item(4, "Active Directory Account", false, false);
 
          //Build Player object:
-         Player player = new Models.Player();
+         player = new Models.Player();
 
          //Build Room Person objects:
          Person personAdminClerk = new Models.Person("Aministration Office Clerk", Person.MoodStatus.Bad);
@@ -44,26 +53,27 @@ namespace DataLayer
          //Build Room Descriptions:
          List<string> room1Desc = new List<string> {
             "Administration Clerk: 'Welcome to the 'First Job, LLC' company!'",
-            "'Please take a copy of our In-Processing form and Submit it when complete.'"
+            "'Take a copy of our In-Processing form and Submit it when complete.'"
          };
          List<string> room2Desc = new List<string> {
             "HR Manager: 'Welcome! Let's review all of our company policies.'",
-            "'Please take a copy of our Policy Agreement Package and Submit when complete.'"
+            "'Take a copy of our Policy Agreement Package and Submit when complete.'"
          };
          List<string> room3Desc = new List<string> {
             "Supervisor: 'So glad you are joining our team!'",
-            "'Please take this Building Fob and be sure to test it before end-of-day (EOD).'"
+            "'Take this Building Fob and be sure to test it before end-of-day (EOD).'"
          };
          List<string> room4Desc = new List<string> {
             "Coworker: 'Welcome the office man!'",
-            "'Lets take some time to build your new Active Directory Account before EOD.'"
+            "'Lets build your new Active Directory Account before EOD.'"
          };
 
          //Build Room objects:
-         Room roomAdminOffice = new Models.Room(1, "Administration Office", room1Desc, personAdminClerk, itemInProcessingForm);
-         Room roomHROffice = new Models.Room(2, "Human Resource Office", room2Desc, personHRManager, itemPolicyAgreementPackage);
-         Room roomDepOffice = new Models.Room(3, "Department Supervisor Office", room3Desc, personSupervisor, itemBuildingFob);
-         Room roomWorkArea = new Models.Room(4, "Work Area Office", room4Desc, personCoworker, itemActiveDirectoryAccount);
+         roomAdminOffice = new Models.Room(1, "Administration Office", room1Desc, personAdminClerk, itemInProcessingForm);
+         roomHROffice = new Models.Room(2, "Human Resource Office", room2Desc, personHRManager, itemPolicyAgreementPackage);
+         roomDepOffice = new Models.Room(3, "Department Supervisor Office", room3Desc, personSupervisor, itemBuildingFob);
+         roomWorkArea = new Models.Room(4, "Work Area Office", room4Desc, personCoworker, itemActiveDirectoryAccount);
+
 
       }
 

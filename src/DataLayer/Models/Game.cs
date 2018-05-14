@@ -14,13 +14,9 @@ namespace DataLayer.Models
       internal string DateLastUpdated { get; private set; }
       internal List<string> Description { get; private set; }
 
-      //Game State:
-      //Room (including item)
-      //Person (including mood)
-      //Player
+      internal bool Played { get; set; }
 
-      
-  
+
       public Game(string title, string version, string developer, string dateLastUpdated, List<string> description)
       {
          Title = title;
@@ -28,9 +24,6 @@ namespace DataLayer.Models
          Developer = developer;
          DateLastUpdated = dateLastUpdated;
          Description = description;
-
-
-
       }
    }
 }

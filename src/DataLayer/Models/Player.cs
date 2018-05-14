@@ -8,6 +8,13 @@ namespace DataLayer.Models
    internal class Player
    {
       internal List<Item> Inventory { get; set; }
+
+      internal Player()
+      {
+         Inventory = new List<Item>();
+      }
+
    }
+
 
 }

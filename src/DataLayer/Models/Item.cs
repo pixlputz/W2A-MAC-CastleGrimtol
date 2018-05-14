@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace DataLayer.Models
 {
-   internal class Item
+   public class Item
    {
       internal int Id { get; set; }
       internal string Name { get; set; }
@@ -13,7 +13,7 @@ namespace DataLayer.Models
       internal bool Submitted { get; set; }
 
 
-      internal Item(int id, string name, bool completed, bool submitted)
+      public Item(int id, string name, bool completed, bool submitted)
       {
          Id = id;
          Name = name;
